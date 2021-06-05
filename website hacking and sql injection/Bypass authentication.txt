@@ -1,0 +1,33 @@
+Whenever we visit a website, there are options for logging in or signing up. If you are already a user of a website, you have to log in with your valid credentials. If the given credentials are wrong, then you can't access your account. Users of a website may be admin or casual users. Suppose the email field is not validated. Now, we pass some random input, email: bdhbhdm and password: 123456. But the page displays a wrong username or password error message. The original query of the above login form is as follows:
+
+SELECT id FROM users WHERE username=' ' and password=' '
+
+so it becomes,
+
+SELECT id FROM users WHERE username='bdhbhdm ' and password='123456'
+
+The query runs in the database to check whether the username and password are valid. If the credentials are correct, then the query retrieves the particular account. Otherwise, it displays an error message.
+  
+
+We can use SQL injection to bypass the login and get access. Here, we use the inputs.
+
+1. username:1' or '1'='1 and password: 1' or '1'='1. So the query becomes,
+
+SELECT id FROM users WHERE username='1' or '1'='1 ' and password='1' or '1'='1 '
+
+Since the conditions 1 and 1=1 are always true, access will be granted to the attacker. The position of apostrophes in the input is important.
+
+2. username: admin'-- and password: anything. In this case, the query becomes,
+
+SELECT id FROM users WHERE username='admin ' -- and password='xxxxx '
+
+The two dash characters (--) ignore the part after its position. So the query only checks the username, and the attacker will gain access to the admin account.
+
+Notes
+
+    This type of attack can be defeated by validating inputs in a form.
+    The SQL injection payload works based on the type of database.
+    Search "SQL injection cheat sheet" in Google for more payloads.
+
+      
+      https://pentestlab.blog/2012/12/24/sql-injection-authentication-bypass-cheat-sheet/

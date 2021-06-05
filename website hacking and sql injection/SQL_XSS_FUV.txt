@@ -1,0 +1,50 @@
+Practical based session
+
+1. Sql injection --- DB hacking (Manual & tool)
+2. XSS (Cross Site scripting) --> 
+3. File upload Vulnerblity -- Web server Hacking (Lab)
+
+System Hacking
+4. Dos Attacks --- System Hacking (Virtual Machine)
+
+
+SQL Injection:
+
+Target: DB 
+How to find DB websites
+
+Google Dork: inurl .php id=?
+
+
+Prevention;
+Firewall has to stron(WAF - Web appln firewall installation)
+it should takes sql query from websites
+
+
+
+XSS (Cross site Scripting)
+
+Inject a malicious script in input paramteres (username & pass& search& box)
+Hacker ---> will inject Java script code in parameters ---> respond to code
+
+XSS
+1. Stored XSS ---> code will stored in to website 
+2. Refelected XSS ---> when hacker excuted code then it will respond
+3. DOM based XSS ---> hacker will hack website and inject malicious code in Source code
+
+<script>alert("XSS-Vul");</script>
+
+
+Prevention: 
+it should exe script in parameters
+blacklist enabled for symbols
+CSP (Content securty policy)
+
+
+
+FUV -- hacker will upload maliciousfile (php/asp/js) and opens that file it 
+will be excuted and hacker will get whole control of webserver 
+
+Lab -- i creted website
+Target: upload option
+
